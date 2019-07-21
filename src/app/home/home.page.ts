@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import Quagga from 'quagga';
+import * as firebase from 'firebase/app';
+import 'firebase/functions';
+import {environment} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +11,16 @@ import Quagga from 'quagga';
 })
 export class HomePage implements OnInit {
 
-  detectedCode = '';
-  scanning = true;
+  detectedCode = 'test';
+  scanning = false;
+  firebaseFunctions;
 
-  constructor() {}
+  constructor() {
+    firebase.initializeApp(environment.firebaseConfig);
+
+// Initialize Cloud Functions through Firebase
+    this.firebaseFunctions = firebase.functions();
+  }
 
   ngOnInit(): void {
     // check if media Devices is accessible:
@@ -52,5 +61,14 @@ export class HomePage implements OnInit {
   restartScanner(): void {
     this.scanning = true;
     // Quagga.start();
+  }
+
+  requestPassGeneration(): void {
+    const generate = firebase.functions().httpsCallable('generate');
+    generate({id: this.detectedCode}).then((result) => {
+      // FIXME: We need to create download file here
+      alert(result.data);
+    });
+
   }
 }

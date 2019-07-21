@@ -1,5 +1,7 @@
 {
   "name": "membershipPassCard",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
