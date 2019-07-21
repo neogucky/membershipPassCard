@@ -7,9 +7,14 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-
+  <div class="ion-padding center" [hidden]="detectedCode !== ''">
     Scan your membership card to create an Apple Pass
-
+  </div>
+  <div class="ion-padding center" [hidden]="detectedCode === ''">
+    Member ID: "{{detectedCode}}" detected <br><br>
+    <ion-button href="download/{{detectedCode}}">Download Apple Passcard</ion-button>
+  </div>
+  <ion-button id="rescan" [hidden]="scanning" (click)="restartScanner()">Scan another card</ion-button>
+  <div [hidden]="scanning === false" id="scanner">
   </div>
 </ion-content>
