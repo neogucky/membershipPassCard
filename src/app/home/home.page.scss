@@ -22,3 +22,20 @@ ion-button#rescan {
 .center {
   text-align: center;
 }
+ion-button ion-icon {
+  padding-right: 8px;
+}
+
+ion-button#download {
+  margin: 0 auto;
+  height: 35px;
+}
+
+ion-input {
+  padding-left: 17px!important;
+}
+
+ion-select {
+  width: 100%;
+  max-width: 100%;
+}

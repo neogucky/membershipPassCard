@@ -7,14 +7,34 @@
 </ion-header>
 
 <ion-content>
+  <ion-list inset>
+
+    <ion-item>
   <div class="ion-padding center" [hidden]="detectedCode !== ''">
     Scan your membership card to create an Apple Pass
   </div>
-  <div class="ion-padding center" [hidden]="detectedCode === ''">
-    Member ID: "{{detectedCode}}" detected <br><br>
-    <ion-button (click)="requestPassGeneration()">Download Apple Passcard</ion-button>
-  </div>
-  <ion-button id="rescan" [hidden]="scanning" (click)="restartScanner()">Scan another card</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="cardHolder" placeholder="Card holder (optional)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select [(ngModel)]="gym" placeholder="Select Gym (optional)">
+        <ion-select-option value="kletterwerk">Kletterwerk (Lübeck)</ion-select-option>
+        <ion-select-option value="boulderquartier">Boulderquartier (Hamburg)</ion-select-option>
+        <ion-select-option value="boulderwerk">Boulderwerk (Hamburg)</ion-select-option>
+        <ion-select-option value="other">other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="detectedCode" placeholder="Membership Number"></ion-input>
+      <ion-button item-right [hidden]="scanning" (click)="restartScanner()"><ion-icon name="camera"></ion-icon>
+         Scan</ion-button>
+    </ion-item>
+    <ion-item (click)="startedDownload()"  [hidden]="detectedCode === ''">
+      <ion-button id="download" [disabled]="downloading" href="https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Apple Passcard</ion-button>
+    </ion-item>
+  </ion-list>
   <div [hidden]="scanning === false" id="scanner">
   </div>
+  <ion-button href="/impress" fill="clear">Impress / Legal</ion-button>
 </ion-content>
