@@ -1,0 +1,26 @@
+{
+  "formatVersion" : 1,
+  "passTypeIdentifier" : "pass.net.newmediadesign.generator",
+  "serialNumber" : "8j23fm3",
+  "webServiceURL" : "https://example.com/passes/",
+  "authenticationToken" : "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc",
+  "teamIdentifier" : "Y8HS486XMR",
+  "locations" : [
+    {
+      "longitude" : 10.675696,
+      "latitude" : 53.849518
+    }
+  ],
+  "barcode" : {
+    "message" : "123456789",
+    "format" : "PKBarcodeFormatCode128",
+    "messageEncoding" : "iso-8859-1"
+  },
+  "organizationName" : "Climbing Gym",
+  "description" : "Membership Card",
+  "logoText" : "Membership Card",
+  "foregroundColor" : "rgb(255, 255, 255)",
+  "backgroundColor" : "rgb(147, 192, 31)",
+  "storeCard" : {
+  }
+}
