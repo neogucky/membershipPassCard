@@ -10,9 +10,12 @@
   <ion-list inset>
 
     <ion-item>
-  <div class="ion-padding center" [hidden]="detectedCode !== ''">
-    Scan your membership card to create an Apple Pass
-  </div>
+      <div class="ion-padding center" [hidden]="detectedCode !== ''">
+        Scan your membership card to create an <b>Apple Wallet Pass</b> (On android Pass Wallet is required to make this work)
+      </div>
+      <div class="ion-padding center" [hidden]="detectedCode === ''">
+        Create and download an <b>Apple Wallet Pass</b> (On android the external App Pass Wallet is required to make this work)
+      </div>
     </ion-item>
     <ion-item>
       <ion-input type="text" [(ngModel)]="cardHolder" placeholder="Card holder (optional)"></ion-input>
@@ -21,7 +24,7 @@
       <ion-select [(ngModel)]="gym" placeholder="Select Gym (optional)">
         <ion-select-option value="kletterwerk">Kletterwerk (Lübeck)</ion-select-option>
         <ion-select-option value="boulderquartier">Boulderquartier (Hamburg)</ion-select-option>
-        <ion-select-option value="boulderwerk">Boulderwerk (Hamburg)</ion-select-option>
+        <ion-select-option value="boulderwerk">Boulderwerk (Norderstedt)</ion-select-option>
         <ion-select-option value="other">other</ion-select-option>
       </ion-select>
     </ion-item>
@@ -31,10 +34,14 @@
          Scan</ion-button>
     </ion-item>
     <ion-item (click)="startedDownload()"  [hidden]="detectedCode === ''">
-      <ion-button id="download" [disabled]="downloading" href="https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Apple Passcard</ion-button>
+      <ion-button class="download" [hidden]="!isApple" [disabled]="downloading" href="https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Apple Passcard</ion-button>
+      <ion-button class="download" [hidden]="isApple" [disabled]="downloading" href="http://passwallet.attidomobile.com/download2.php?pass=https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Pass (Android App Pass)</ion-button>
+    </ion-item>
+    <ion-item (click)="startedDownload()"  [hidden]="detectedCode === '' || isApple">
+      <ion-button class="download" [disabled]="downloading" href="https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Pass (other Pass Apps)</ion-button>
     </ion-item>
   </ion-list>
   <div [hidden]="scanning === false" id="scanner">
   </div>
-  <ion-button href="/impress" fill="clear">Impress / Legal</ion-button>
+  <ion-button class="impress" href="/impress" fill="clear">Impress / Legal / Author</ion-button>
 </ion-content>

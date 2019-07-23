@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   firebaseFunctions;
   downloading = false;
   gym = '';
+  isApple = false;
 
   constructor() {
     firebase.initializeApp(environment.firebaseConfig);
@@ -34,6 +35,9 @@ export class HomePage implements OnInit {
       // FIXME: manual ID entry
       alert('Device not compatible');
     }
+
+    this.isApple = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+
   }
 
 
@@ -79,5 +83,6 @@ export class HomePage implements OnInit {
 
   startedDownload() {
     this.downloading = true;
+    setTimeout(() => this.downloading = false, 5000);
   }
 }
