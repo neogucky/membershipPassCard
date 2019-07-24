@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'impress', loadChildren: './impress/impress.module#ImpressPageModule' },
+  { path: 'share', loadChildren: './share/share.module#SharePageModule' },
 ];
 
 @NgModule({

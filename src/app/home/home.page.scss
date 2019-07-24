@@ -17,23 +17,50 @@
   text-align: center;
 }
 
+ion-list {
+  z-index: 10;
+  position: absolute;
+}
+
 ion-button {
-  height: 35px;
+  height: 40px;
 }
 
 ion-button ion-icon {
   padding-right: 8px;
 }
 
+ion-button.scan {
+  margin: 0;
+}
+
 ion-button.download {
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 ion-input {
   padding-left: 17px!important;
 }
 
+div.downloadWrapper {
+  text-align: center;
+  position: absolute;
+  bottom: 60px;
+}
+
 ion-select {
   width: 100%;
   max-width: 100%;
+}
+
+ion-button.impress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+ion-button.share {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
