@@ -9,19 +9,7 @@ enum Gym {
 
 export const generateFromStream = functions.https.onRequest((req, res) => {
 
-    let model;
-    switch (req.query.gym) {
-        case 'kletterwerk':
-            model = './generator-hl.pass';
-            break;
-        case 'boulderquartier':
-            model = './generator-hh.pass';
-            break;
-        default:
-            model = './generator.pass';
-    }
-
-    console.log('loading model from: ' + model);
+    let model = './generator.pass';
 
     const applePass = new Pass({
         model: model,
@@ -47,13 +35,13 @@ export const generateFromStream = functions.https.onRequest((req, res) => {
 
     switch (req.query.gym) {
         case 'kletterwerk':
-            applePass.relevance("location", [{
+            applePass.relevance("locations", [{
                 longitude : 10.675696,
                 latitude : 53.849518
             }]);
             break;
         case 'boulderquartier':
-            applePass.relevance("location", [{
+            applePass.relevance("locations", [{
                 longitude: 10.080086,
                 latitude: 53.577296
             }]);

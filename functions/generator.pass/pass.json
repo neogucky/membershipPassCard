@@ -14,7 +14,7 @@
   },
   "organizationName" : "Climbing Gym",
   "description" : "Membership Card",
-  "logoText" : "Membership Card (other)",
+  "logoText" : "Membership Card",
   "foregroundColor" : "rgb(255, 255, 255)",
   "backgroundColor" : "rgb(147, 192, 31)",
   "storeCard" : {
