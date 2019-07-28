@@ -1,7 +1,7 @@
 {
   "formatVersion" : 1,
   "passTypeIdentifier" : "pass.net.newmediadesign.generator",
-  "serialNumber" : "8j23fm3",
+  "serialNumber" : "8j23fm5",
   "webServiceURL" : "https://example.com/passes/",
   "authenticationToken" : "vxwxd7J8AlNNFPS8k0a0FfUFtq0ewzFdc",
   "teamIdentifier" : "Y8HS486XMR",
@@ -14,7 +14,7 @@
   },
   "organizationName" : "Climbing Gym",
   "description" : "Membership Card",
-  "logoText" : "Membership Card",
+  "logoText" : "Membership Card (other)",
   "foregroundColor" : "rgb(255, 255, 255)",
   "backgroundColor" : "rgb(147, 192, 31)",
   "storeCard" : {

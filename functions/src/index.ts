@@ -10,7 +10,7 @@ enum Gym {
 export const generateFromStream = functions.https.onRequest((req, res) => {
 
     let model;
-    switch (req.params.gym) {
+    switch (req.query.gym) {
         case 'kletterwerk':
             model = './generator-hl.pass';
             break;
@@ -20,6 +20,8 @@ export const generateFromStream = functions.https.onRequest((req, res) => {
         default:
             model = './generator.pass';
     }
+
+    console.log('loading model from: ' + model);
 
     const applePass = new Pass({
         model: model,
@@ -31,8 +33,9 @@ export const generateFromStream = functions.https.onRequest((req, res) => {
                 passphrase: "secret123"
             }
         },
-        // if true, existing keys added through methods get overwritten
-        // pushed in queue otherwise.
+        overrides: {
+            serialNumber: Math.random().toString(36).substring(7) + Math.random().toString(36).substring(7)
+        },
         shouldOverwrite: true
     });
 
@@ -41,6 +44,23 @@ export const generateFromStream = functions.https.onRequest((req, res) => {
         message: req.query.id,
         format: "PKBarcodeFormatCode128"
     }]);
+
+    switch (req.query.gym) {
+        case 'kletterwerk':
+            applePass.relevance("location", [{
+                longitude : 10.675696,
+                latitude : 53.849518
+            }]);
+            break;
+        case 'boulderquartier':
+            applePass.relevance("location", [{
+                longitude: 10.080086,
+                latitude: 53.577296
+            }]);
+            break;
+    }
+
+    applePass.relevance("maxDistance", 100);
 
     if (req.query.name !== '') {
         applePass.secondaryFields.push({
