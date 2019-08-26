@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Create Apple Pass
+      {{ 'TITLE' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,28 +9,24 @@
 <ion-content>
   <ion-list inset>
     <ion-item [hidden]="!isApple">
-      <div class="ion-padding center">
-        Scan your membership card to create an <b>Apple Wallet Pass</b>. Your name and your gym are optional, without the gym the pass will not be geotagged.
-      </div>
+      <div class="ion-padding center" [innerHTML]="'APPLE_INTRODUCTION' | translate"></div>
     </ion-item>
     <ion-item [hidden]="isApple">
-      <div class="ion-padding center">
-        Scan your membership card to create a digital pass for <b>compatible Android Apps</b>. Your name and your gym are optional, without the gym the pass will not be geotagged.
-      </div>
+      <div class="ion-padding center" [innerHTML]="'ANDROID_INTRODUCTION' | translate"></div>
     </ion-item>
     <ion-item>
-      <ion-input type="text" [(ngModel)]="cardHolder" placeholder="Card holder (optional)"></ion-input>
+      <ion-input type="text" [(ngModel)]="cardHolder" placeholder="{{ 'CARDHOLDER' | translate }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-select [(ngModel)]="gym" placeholder="Select Gym (optional)">
-        <ion-select-option value="kletterwerk">Kletterwerk (Lübeck)</ion-select-option>
-        <ion-select-option value="boulderquartier">Boulderquartier (Hamburg)</ion-select-option>
-        <ion-select-option value="boulderwerk">Boulderwerk (Norderstedt)</ion-select-option>
-        <ion-select-option value="other">other</ion-select-option>
+      <ion-select [(ngModel)]="gym" placeholder="{{ 'SELECT_GYM' | translate }}">
+        <ion-select-option value="kletterwerk"> {{ 'KLETTERWERK' | translate }} </ion-select-option>
+        <ion-select-option value="boulderquartier">{{ 'BOULDERQUARTIER' | translate }}</ion-select-option>
+        <ion-select-option value="boulderwerk">{{ 'BOULDERWERK' | translate }}</ion-select-option>
+        <ion-select-option value="other">{{ 'OTHER' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-input type="text" [(ngModel)]="detectedCode" placeholder="Membership Number"></ion-input>
+      <ion-input type="text" [(ngModel)]="detectedCode" placeholder="{{ 'MEMBERSHIP_NUMBER' | translate }}"></ion-input>
       <ion-button class="scan" item-right [hidden]="scanning" (click)="restartScanner()"><ion-icon name="camera"></ion-icon>
          Scan</ion-button>
     </ion-item>

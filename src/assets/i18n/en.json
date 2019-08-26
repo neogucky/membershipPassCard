@@ -1,0 +1,12 @@
+{
+  "TITLE": "Create Digital Pass",
+  "KLETTERWERK": "Kletterwerk (Lübeck)",
+  "BOULDERQUARTIER": "Boulderquartier (Hamburg)",
+  "BOUKLDERWERK": "Boulderwerk (Norderstedt)",
+  "OTHER": "other",
+  "MEMBERSHIP_NUMBER": "Membership Number",
+  "CARDHOLDER": "Card Holder (optional)",
+  "SELECT_GYM": "Select Gym (optional)",
+  "APPLE_INTRODUCTION": "Scan your membership card to create an <b>Apple Wallet Pass</b>. Your name and your gym are optional, without the gym the pass will not be geotagged.",
+  "ANDROID_INTRODUCTION": "Scan your membership card to create a digital pass for <b>compatible Android Apps</b>. Your name and your gym are optional, without the gym the pass will not be geotagged."
+}
