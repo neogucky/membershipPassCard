@@ -46,6 +46,12 @@ export const generateFromStream = functions.https.onRequest((req, res) => {
                 latitude: 53.577296
             }]);
             break;
+        case 'boulderwerk':
+            applePass.relevance("locations", [{
+                longitude: 9.979970,
+                latitude: 53.662212
+            }]);
+            break;
     }
 
     applePass.relevance("maxDistance", 100);
