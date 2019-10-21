@@ -8,5 +8,7 @@
   "CARDHOLDER": "Name auf Karte (optional)",
   "SELECT_GYM": "Halle auswählen (optional)",
   "APPLE_INTRODUCTION": "Scanne  deinen Mitgliedsausweis um einen <b>Apple Wallet Pass</b> zu erstellen. Optional kann dein Name zur Zuordnung und die Halle zur ortsabhängigen Apple Pass Funktion angegeben werden.",
-  "ANDROID_INTRODUCTION": "Scanne  deinen Mitgliedsausweis um einen digitalen Pass für <b>compatible Android Apps</b> zu erstellen. Optional kann dein Name und die Halle zur einfacheren Zuordnung angegeben werden."
+  "ANDROID_INTRODUCTION": "Scanne  deinen Mitgliedsausweis um einen digitalen Pass für <b>compatible Android Apps</b> zu erstellen. Optional kann dein Name und die Halle zur einfacheren Zuordnung angegeben werden.",
+  "APPLE_DOWNLOAD": "Erstelle und lade deinen <b>Apple Wallet Pass</b> herunter, dies kann mehrere Sekunden dauern.",
+  "ANDROID_DOWNLOAD": "Erstelle und lade deinen Digitalen Pass herunter. <b>Android App Pass</b> installiert automatisch eine der möglichen Apps, alternativ kannst du auch nur die PKPASS-Datei laden und eine andere App wählen."
 }

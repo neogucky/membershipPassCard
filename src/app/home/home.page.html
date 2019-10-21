@@ -32,11 +32,9 @@
     </ion-item>
   </ion-list>
   <div class="downloadWrapper" [hidden]="detectedCode === ''">
-    <div class="ion-padding center" [hidden]="!isApple">
-      Create and download your <b>Apple Wallet Pass</b>, this will take a couple of seconds.
+    <div class="ion-padding center" [hidden]="!isApple" [innerHTML]="'APPLE_DOWNLOAD' | translate">
     </div>
-    <div class="ion-padding center" [hidden]="isApple">
-      Create and download your digital pass. Either select <b>Android App Pass</b> or download the PKPASS-File and use another App of your choosing.
+    <div class="ion-padding center" [hidden]="isApple" [innerHTML]="'ANDROID_DOWNLOAD' | translate">
     </div>
     <ion-button class="download" (click)="startedDownload()" [hidden]="!isApple" [disabled]="downloading" href="https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Apple Passcard</ion-button>
     <ion-button class="download" (click)="startedDownload()" [hidden]="isApple" [disabled]="downloading" href="http://passwallet.attidomobile.com/download2.php?pass=https://us-central1-membershippasscard.cloudfunctions.net/generateFromStream?id={{detectedCode}}&&name={{cardHolder}}&&gym={{gym}}"><ion-spinner [hidden]="downloading === false"></ion-spinner>Download Pass (Android App Pass)</ion-button>
