@@ -1,7 +1,7 @@
 {
   "name": "membershipPassCard",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "version": "0.0.2",
+  "author": "Tim Rasim",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -30,7 +30,7 @@
     "angularfire2": "^5.2.1",
     "core-js": "^2.5.4",
     "file-saver": "^2.0.2",
-    "firebase": "^6.3.1",
+    "firebase": "^7.24.0",
     "quagga": "^0.12.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -62,7 +62,7 @@
     "tslint": "~5.17.0",
     "typescript": "~3.1.6"
   },
-  "description": "An Ionic project",
+  "description": "Membership pass-card generator",
   "cordova": {
     "plugins": {}
   }

@@ -78,8 +78,10 @@ export const generateFromStream = functions.https.onRequest(async (req, res) => 
         });
     }
 
+    const bundle = PKPass.pack(applePass);
+
     res.set({
-        "Content-type": applePass.mimeType,
+        "Content-type": bundle.mimeType,
         "Content-disposition": "attachment; filename=membershippass.pkpass"
     });
 
