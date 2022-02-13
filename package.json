@@ -26,6 +26,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "angularfire2": "^5.4.2",
+    "browserslist": "^4.19.1",
     "core-js": "^2.6.12",
     "file-saver": "^2.0.5",
     "firebase": "^7.24.0",
