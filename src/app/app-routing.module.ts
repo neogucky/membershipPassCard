@@ -3,9 +3,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'impress', loadChildren: './impress/impress.module#ImpressPageModule' },
-  { path: 'share', loadChildren: './share/share.module#SharePageModule' },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
+  { path: 'impress', loadChildren: () => import('./impress/impress.module').then(m => m.ImpressPageModule) },
+  { path: 'share', loadChildren: () => import('./share/share.module').then(m => m.SharePageModule) },
 ];
 
 @NgModule({
